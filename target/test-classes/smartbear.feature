@@ -9,13 +9,13 @@ Feature: SmartBear Functions Validation
     And user clicks on Login button
     Then user should see "Invalid Login or Password." message
 
-#  @Smoke
-#  Scenario: Validate valid login attempt
-#    Given user is on "http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx"
-#    When user enters username as "Tester"
-#    And user enters password as "test"
-#    And user clicks on Login button
-#    Then user should be routed to "http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/"
+  @Smoke
+  Scenario: Validate valid login attempt
+    Given user is on "http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx"
+    When user enters username as "Tester"
+    And user enters password as "test"
+    And user clicks on Login button
+    Then user should be routed to "http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/"
 #
 #  @Regression
 #  Scenario: Validate "Web Orders" menu items

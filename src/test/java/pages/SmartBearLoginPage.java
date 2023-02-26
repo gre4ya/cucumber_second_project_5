@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
 
-public class SmartBearBasePage {
+public class SmartBearLoginPage {
 
-    public SmartBearBasePage(){
+    public SmartBearLoginPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -20,6 +20,5 @@ public class SmartBearBasePage {
     @FindBy(id = "ctl00_MainContent_status")
     public WebElement errorMassage;
 
-    public static final String expectedErrorMassage = "Invalid Login or Password.";
 
 }
