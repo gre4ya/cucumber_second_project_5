@@ -39,7 +39,7 @@ Feature: SmartBear Functions Validation
     When user clicks on "Uncheck All" button
     Then all rows should be unchecked
 
-  @Regression
+  @R
   Scenario: Validate adding new order
     Given user is on "http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx"
     When user enters username as "Tester"

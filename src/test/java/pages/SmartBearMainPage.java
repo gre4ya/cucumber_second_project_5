@@ -23,6 +23,15 @@ public class SmartBearMainPage {
     public WebElement productDropdown;
     @FindBy(css = "input[id*='txtQuantity']")
     public WebElement quantityInput;
+    @FindBy(xpath = "(//ol)[2]//input")
+    public List<WebElement> addressInputFields;
+    @FindBy(css = "input[id*='cardList']")
+    public List<WebElement> cardTypes;
+    @FindBy(css = "input[id*='TextBox6']")
+    public WebElement cardNumber;
+    @FindBy(css = "input[id*='TextBox1']")
+    public WebElement cardExpireDate;
+
 
 
 

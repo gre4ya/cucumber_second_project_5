@@ -1,5 +1,6 @@
 package steps;
 
+import com.github.javafaker.Faker;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -14,13 +15,18 @@ import org.openqa.selenium.support.ui.Select;
 import pages.SmartBearLoginPage;
 import pages.SmartBearMainPage;
 import utils.Driver;
+import utils.RandomNumberGenerator;
+import utils.Waiter;
 import utils.WindowHandler;
+
+import java.util.Random;
 
 public class SmartBearSteps {
 
     WebDriver driver;
     SmartBearLoginPage smartBearLoginPage;
     SmartBearMainPage smartBearMainPage;
+    Faker faker = new Faker();
 
     @Before
     public void setup() {
@@ -72,6 +78,7 @@ public class SmartBearSteps {
                 break;
             case "Process":
                 smartBearMainPage.processButton.click();
+                Waiter.pause(4);
                 break;
             default:
                 throw new NotFoundException();
@@ -90,12 +97,12 @@ public class SmartBearSteps {
         for (int i = 0; i < smartBearMainPage.orderSelectorCheckBoxes.size(); i++) {
             Assert.assertFalse(smartBearMainPage.orderSelectorCheckBoxes.get(i).isSelected());
         }
-
     }
 
     @When("user clicks on {string} menu item")
     public void userClicksOnMenuItem(String manuItem) {
-        driver.findElement(By.xpath("//a[text()='" +manuItem + "']")).click();
+        driver.findElement(By.xpath("//a[text()='" + manuItem + "']")).click();
+        Waiter.pause(10);
     }
 
     @And("user selects {string} as product")
@@ -109,14 +116,45 @@ public class SmartBearSteps {
         smartBearMainPage.quantityInput.clear();
         smartBearMainPage.quantityInput.sendKeys("2");
     }
-
+    String streetAddress = faker.address().streetAddress();
+    String fullName = faker.name().fullName();
+    String city = faker.address().city();
+    String state = faker.address().state();
+    String zip = faker.address().zipCode().substring(0,5);
     @And("user enters all address information")
     public void userEntersAllAddressInformation() {
+        for (int i = 0; i < smartBearMainPage.addressInputFields.size(); i++) {
+            switch (i){
+                case 0:
+                    smartBearMainPage.addressInputFields.get(i).sendKeys(fullName);
+                    break;
+                case 1:
+                    smartBearMainPage.addressInputFields.get(i).sendKeys(streetAddress);
+                    break;
+                case 2:
+                    smartBearMainPage.addressInputFields.get(i).sendKeys(city);
+                    break;
+                case 3:
+                    smartBearMainPage.addressInputFields.get(i).sendKeys(state);
+                    break;
+                case 4:
+                    smartBearMainPage.addressInputFields.get(i).sendKeys(zip);
+                    break;
+                default:
+                    throw new NotFoundException();
+            }
+        }
 
     }
-
+    int cardType = RandomNumberGenerator.getARandomNumber(0,2);
+    String cardNumber = String.valueOf(faker.number().randomNumber(16, true));
+    String cardExpDate = "0" + RandomNumberGenerator.getARandomNumber(1,9) + "/" + RandomNumberGenerator.getARandomNumber(25,30);
     @And("user enters all payment information")
     public void userEntersAllPaymentInformation() {
+        smartBearMainPage.cardTypes.get(cardType).click();
+        smartBearMainPage.cardNumber.sendKeys(cardNumber);
+        smartBearMainPage.cardExpireDate.sendKeys(cardExpDate);
+        Waiter.pause(3);
     }
 
     @Then("user should see their order displayed in the {string} table")
