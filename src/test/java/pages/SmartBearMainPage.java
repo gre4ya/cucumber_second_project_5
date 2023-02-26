@@ -13,6 +13,10 @@ public class SmartBearMainPage {
     }
     @FindBy(css = "ul[id='ctl00_menu'] li")
     public List<WebElement> menuOptions;
+    @FindBy(css = "p[class='CheckUncheck'] a")
+    public List<WebElement> checkUncheckButton;
+    @FindBy(css = "input[id*='OrderSelector']")
+    public List<WebElement> orderSelectorCheckBoxes;
 
 
 }

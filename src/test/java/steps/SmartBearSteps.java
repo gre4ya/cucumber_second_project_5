@@ -7,6 +7,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import pages.SmartBearLoginPage;
 import pages.SmartBearMainPage;
@@ -56,5 +57,34 @@ public class SmartBearSteps {
         for (int i = 0; i < options.asList().size(); i++) {
             Assert.assertEquals(options.asList().get(i), smartBearMainPage.menuOptions.get(i).getText());
         }
+    }
+
+    @When("user clicks on {string} button")
+    public void userClicksOnButton(String button) {
+        switch(button){
+            case "Check All":
+                smartBearMainPage.checkUncheckButton.get(0).click();
+                break;
+            case "Uncheck All":
+                smartBearMainPage.checkUncheckButton.get(1).click();
+                break;
+            default:
+                throw new NotFoundException();
+        }
+    }
+
+    @Then("all rows should be checked")
+    public void allRowsShouldBeChecked() {
+        for (int i = 0; i < smartBearMainPage.orderSelectorCheckBoxes.size(); i++) {
+            Assert.assertTrue(smartBearMainPage.orderSelectorCheckBoxes.get(i).isSelected());
+        }
+    }
+
+    @Then("all rows should be unchecked")
+    public void allRowsShouldBeUnchecked() {
+        for (int i = 0; i < smartBearMainPage.orderSelectorCheckBoxes.size(); i++) {
+            Assert.assertFalse(smartBearMainPage.orderSelectorCheckBoxes.get(i).isSelected());
+        }
+
     }
 }
