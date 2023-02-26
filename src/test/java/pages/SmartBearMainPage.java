@@ -17,6 +17,15 @@ public class SmartBearMainPage {
     public List<WebElement> checkUncheckButton;
     @FindBy(css = "input[id*='OrderSelector']")
     public List<WebElement> orderSelectorCheckBoxes;
+    @FindBy(css = "a[id*='InsertButton']")
+    public WebElement processButton;
+    @FindBy(css = "select[id*='ddlProduct']")
+    public WebElement productDropdown;
+    @FindBy(css = "input[id*='txtQuantity']")
+    public WebElement quantityInput;
+
+
+
 
 
 }

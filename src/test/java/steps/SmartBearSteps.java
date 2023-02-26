@@ -7,8 +7,10 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 import pages.SmartBearLoginPage;
 import pages.SmartBearMainPage;
 import utils.Driver;
@@ -68,6 +70,9 @@ public class SmartBearSteps {
             case "Uncheck All":
                 smartBearMainPage.checkUncheckButton.get(1).click();
                 break;
+            case "Process":
+                smartBearMainPage.processButton.click();
+                break;
             default:
                 throw new NotFoundException();
         }
@@ -86,5 +91,39 @@ public class SmartBearSteps {
             Assert.assertFalse(smartBearMainPage.orderSelectorCheckBoxes.get(i).isSelected());
         }
 
+    }
+
+    @When("user clicks on {string} menu item")
+    public void userClicksOnMenuItem(String manuItem) {
+        driver.findElement(By.xpath("//a[text()='" +manuItem + "']")).click();
+    }
+
+    @And("user selects {string} as product")
+    public void userSelectsAsProduct(String dropdownOption) {
+        Select select = new Select(smartBearMainPage.productDropdown);
+        select.selectByVisibleText(dropdownOption);
+    }
+
+    @And("user enters 2 as quantity")
+    public void userEntersAsQuantity() {
+        smartBearMainPage.quantityInput.clear();
+        smartBearMainPage.quantityInput.sendKeys("2");
+    }
+
+    @And("user enters all address information")
+    public void userEntersAllAddressInformation() {
+
+    }
+
+    @And("user enters all payment information")
+    public void userEntersAllPaymentInformation() {
+    }
+
+    @Then("user should see their order displayed in the {string} table")
+    public void userShouldSeeTheirOrderDisplayedInTheTable(String arg0) {
+    }
+
+    @And("validate all information entered displayed correct with the order")
+    public void validateAllInformationEnteredDisplayedCorrectWithTheOrder() {
     }
 }
