@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 5244482425,
+              "duration": 4619160214,
               "status": "passed"
             },
             "match": {
@@ -14,14 +14,14 @@
             }
           }
         ],
-        "line": 43,
-        "name": "Validate adding new order",
+        "line": 59,
+        "name": "Validate \"Delete Selected\" button",
         "description": "",
-        "id": "smartbear-functions-validation;validate-adding-new-order",
+        "id": "smartbear-functions-validation;validate-\"delete-selected\"-button",
         "after": [
           {
             "result": {
-              "duration": 252324329,
+              "duration": 233683106,
               "status": "passed"
             },
             "match": {
@@ -34,10 +34,10 @@
         "steps": [
           {
             "result": {
-              "duration": 1195898610,
+              "duration": 575760075,
               "status": "passed"
             },
-            "line": 44,
+            "line": 60,
             "name": "user is on \"http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx\"",
             "match": {
               "arguments": [
@@ -52,10 +52,10 @@
           },
           {
             "result": {
-              "duration": 219876525,
+              "duration": 120922344,
               "status": "passed"
             },
-            "line": 45,
+            "line": 61,
             "name": "user enters username as \"Tester\"",
             "match": {
               "arguments": [
@@ -70,10 +70,10 @@
           },
           {
             "result": {
-              "duration": 106981095,
+              "duration": 61933455,
               "status": "passed"
             },
-            "line": 46,
+            "line": 62,
             "name": "user enters password as \"test\"",
             "match": {
               "arguments": [
@@ -88,10 +88,10 @@
           },
           {
             "result": {
-              "duration": 3616422295,
+              "duration": 1175871304,
               "status": "passed"
             },
-            "line": 47,
+            "line": 63,
             "name": "user clicks on Login button",
             "match": {
               "location": "SmartBearSteps.user_clicks_on_Login_button()"
@@ -100,10 +100,10 @@
           },
           {
             "result": {
-              "duration": 10611689,
+              "duration": 12635845,
               "status": "passed"
             },
-            "line": 48,
+            "line": 64,
             "name": "user should be routed to \"http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/\"",
             "match": {
               "arguments": [
@@ -118,87 +118,33 @@
           },
           {
             "result": {
-              "duration": 5209222957,
+              "duration": 146343725,
               "status": "passed"
             },
-            "line": 49,
-            "name": "user clicks on \"Order\" menu item",
+            "line": 65,
+            "name": "user clicks on \"Check All\" button",
             "match": {
               "arguments": [
                 {
-                  "val": "\"Order\"",
+                  "val": "\"Check All\"",
                   "offset": 15
                 }
               ],
-              "location": "SmartBearSteps.userClicksOnMenuItem(String)"
+              "location": "SmartBearSteps.userClicksOnButton(String)"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 101416792,
+              "duration": 1373233263,
               "status": "passed"
             },
-            "line": 50,
-            "name": "user selects \"FamilyAlbum\" as product",
+            "line": 66,
+            "name": "user clicks on \"Delete Selected\" button",
             "match": {
               "arguments": [
                 {
-                  "val": "\"FamilyAlbum\"",
-                  "offset": 13
-                }
-              ],
-              "location": "SmartBearSteps.userSelectsAsProduct(String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 105150301,
-              "status": "passed"
-            },
-            "line": 51,
-            "name": "user enters 2 as quantity",
-            "match": {
-              "location": "SmartBearSteps.userEntersAsQuantity()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 383842871,
-              "status": "passed"
-            },
-            "line": 52,
-            "name": "user enters all address information",
-            "match": {
-              "location": "SmartBearSteps.userEntersAllAddressInformation()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 3221023273,
-              "status": "passed"
-            },
-            "line": 53,
-            "name": "user enters all payment information",
-            "match": {
-              "location": "SmartBearSteps.userEntersAllPaymentInformation()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 4238647516,
-              "status": "passed"
-            },
-            "line": 54,
-            "name": "user clicks on \"Process\" button",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"Process\"",
+                  "val": "\"Delete Selected\"",
                   "offset": 15
                 }
               ],
@@ -208,49 +154,37 @@
           },
           {
             "result": {
-              "duration": 5451141654,
+              "duration": 10091513214,
               "status": "passed"
             },
-            "line": 55,
-            "name": "user clicks on \"View all orders\" menu item",
-            "match": {
-              "arguments": [
-                {
-                  "val": "\"View all orders\"",
-                  "offset": 15
-                }
-              ],
-              "location": "SmartBearSteps.userClicksOnMenuItem(String)"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 371151694,
-              "status": "passed"
-            },
-            "line": 56,
-            "name": "user should see their order displayed in the \"List of All Orders\" table",
+            "line": 67,
+            "name": "validate all orders are deleted from the \"List of All Orders\"",
             "match": {
               "arguments": [
                 {
                   "val": "\"List of All Orders\"",
-                  "offset": 45
+                  "offset": 41
                 }
               ],
-              "location": "SmartBearSteps.userShouldSeeTheirOrderDisplayedInTheTable(String)"
+              "location": "SmartBearSteps.validateAllOrdersAreDeletedFromThe(String)"
             },
             "keyword": "Then "
           },
           {
             "result": {
-              "duration": 285527910,
+              "duration": 21024018,
               "status": "passed"
             },
-            "line": 57,
-            "name": "validate all information entered displayed correct with the order",
+            "line": 68,
+            "name": "validate user sees \"List of orders is empty. In order to add new order use this link.\" message",
             "match": {
-              "location": "SmartBearSteps.validateAllInformationEnteredDisplayedCorrectWithTheOrder()"
+              "arguments": [
+                {
+                  "val": "\"List of orders is empty. In order to add new order use this link.\"",
+                  "offset": 19
+                }
+              ],
+              "location": "SmartBearSteps.validateUserSeesMessage(String)"
             },
             "keyword": "And "
           }

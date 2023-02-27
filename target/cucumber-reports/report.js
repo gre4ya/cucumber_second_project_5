@@ -5,7 +5,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.scenario({
-  "name": "Validate adding new order",
+  "name": "Validate \"Delete Selected\" button",
   "description": "",
   "keyword": "Scenario",
   "tags": [
@@ -68,57 +68,17 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user clicks on \"Order\" menu item",
+  "name": "user clicks on \"Check All\" button",
   "keyword": "When "
 });
 formatter.match({
-  "location": "SmartBearSteps.userClicksOnMenuItem(String)"
+  "location": "SmartBearSteps.userClicksOnButton(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user selects \"FamilyAlbum\" as product",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "SmartBearSteps.userSelectsAsProduct(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user enters 2 as quantity",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "SmartBearSteps.userEntersAsQuantity()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user enters all address information",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "SmartBearSteps.userEntersAllAddressInformation()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user enters all payment information",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "SmartBearSteps.userEntersAllPaymentInformation()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user clicks on \"Process\" button",
+  "name": "user clicks on \"Delete Selected\" button",
   "keyword": "And "
 });
 formatter.match({
@@ -128,31 +88,21 @@ formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user clicks on \"View all orders\" menu item",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "SmartBearSteps.userClicksOnMenuItem(String)"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "user should see their order displayed in the \"List of All Orders\" table",
+  "name": "validate all orders are deleted from the \"List of All Orders\"",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "SmartBearSteps.userShouldSeeTheirOrderDisplayedInTheTable(String)"
+  "location": "SmartBearSteps.validateAllOrdersAreDeletedFromThe(String)"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "validate all information entered displayed correct with the order",
+  "name": "validate user sees \"List of orders is empty. In order to add new order use this link.\" message",
   "keyword": "And "
 });
 formatter.match({
-  "location": "SmartBearSteps.validateAllInformationEnteredDisplayedCorrectWithTheOrder()"
+  "location": "SmartBearSteps.validateUserSeesMessage(String)"
 });
 formatter.result({
   "status": "passed"

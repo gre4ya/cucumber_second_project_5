@@ -19,6 +19,8 @@ public class SmartBearMainPage {
     public List<WebElement> orderSelectorCheckBoxes;
     @FindBy(css = "a[id*='InsertButton']")
     public WebElement processButton;
+    @FindBy(css = "input[id*='btnDelete']")
+    public WebElement deleteAllButton;
     @FindBy(css = "select[id*='ddlProduct']")
     public WebElement productDropdown;
     @FindBy(css = "input[id*='txtQuantity']")
@@ -31,6 +33,10 @@ public class SmartBearMainPage {
     public WebElement cardNumber;
     @FindBy(tagName = "h2")
     public WebElement h2Header;
+    @FindBy(css = "div[id*='orderMessage']")
+    public WebElement orderMessage;
+    @FindBy(css = "table[id*='orderGrid']")
+    public WebElement orderTable;
 
     @FindBy(css = "input[id*='TextBox1']")
     public WebElement cardExpireDate;

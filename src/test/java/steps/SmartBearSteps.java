@@ -9,6 +9,7 @@ import cucumber.api.java.en.When;
 import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -55,20 +56,17 @@ public class SmartBearSteps {
     }
     @Then("user should see {string} message")
     public void user_should_see_message(String expectedErrorMassage) {
-        Assert.assertEquals(expectedErrorMassage, smartBearLoginPage.errorMassage.getText());
-    }
+        Assert.assertEquals(expectedErrorMassage, smartBearLoginPage.errorMassage.getText());}
     @Then("user should be routed to {string}")
     public void userShouldBeRoutedTo(String url) {
         Assert.assertEquals(url, driver.getCurrentUrl());
     }
-
     @And("validate below menu items are displayed")
     public void validateBelowMenuItemsAreDisplayed(DataTable options) {
         for (int i = 0; i < options.asList().size(); i++) {
             Assert.assertEquals(options.asList().get(i), smartBearMainPage.menuOptions.get(i).getText());
         }
     }
-
     @When("user clicks on {string} button")
     public void userClicksOnButton(String button) {
         switch(button){
@@ -80,39 +78,37 @@ public class SmartBearSteps {
                 break;
             case "Process":
                 smartBearMainPage.processButton.click();
-                Waiter.pause(4);
                 break;
+            case "Delete Selected":
+                smartBearMainPage.deleteAllButton.click();
+                break;
+
             default:
                 throw new NotFoundException();
         }
     }
-
     @Then("all rows should be checked")
     public void allRowsShouldBeChecked() {
         for (int i = 0; i < smartBearMainPage.orderSelectorCheckBoxes.size(); i++) {
             Assert.assertTrue(smartBearMainPage.orderSelectorCheckBoxes.get(i).isSelected());
         }
     }
-
     @Then("all rows should be unchecked")
     public void allRowsShouldBeUnchecked() {
         for (int i = 0; i < smartBearMainPage.orderSelectorCheckBoxes.size(); i++) {
             Assert.assertFalse(smartBearMainPage.orderSelectorCheckBoxes.get(i).isSelected());
         }
     }
-
     @When("user clicks on {string} menu item")
     public void userClicksOnMenuItem(String manuItem) {
         driver.findElement(By.xpath("//a[text()='" + manuItem + "']")).click();
         Waiter.pause(5);
     }
-
     @And("user selects {string} as product")
     public void userSelectsAsProduct(String dropdownOption) {
         Select select = new Select(smartBearMainPage.productDropdown);
         select.selectByVisibleText(dropdownOption);
     }
-
     @And("user enters 2 as quantity")
     public void userEntersAsQuantity() {
         smartBearMainPage.quantityInput.clear();
@@ -146,11 +142,9 @@ public class SmartBearSteps {
                     throw new NotFoundException();
             }
         }
-
     }
     int cardType = RandomNumberGenerator.getARandomNumber(0,2);
     String cardTypeString;
-
     {
         switch(cardType){
             case 0:
@@ -166,10 +160,8 @@ public class SmartBearSteps {
                 throw new NotFoundException();
         }
     }
-
     String cardNumber = String.valueOf(faker.number().randomNumber(16, true));
     String cardExpDate;
-
     int month = RandomNumberGenerator.getARandomNumber(1,12);
     int year = RandomNumberGenerator.getARandomNumber(25,30);
     {
@@ -177,7 +169,6 @@ public class SmartBearSteps {
         else cardExpDate = "" + month;
         cardExpDate += "/" + year;
     }
-
     @And("user enters all payment information")
     public void userEntersAllPaymentInformation() {
         smartBearMainPage.cardTypes.get(cardType).click();
@@ -185,14 +176,12 @@ public class SmartBearSteps {
         smartBearMainPage.cardExpireDate.sendKeys(cardExpDate);
         Waiter.pause(3);
     }
-
     @Then("user should see their order displayed in the {string} table")
     public void userShouldSeeTheirOrderDisplayedInTheTable(String tableName) {
         Assert.assertEquals(tableName, smartBearMainPage.h2Header.getText());
         for (int i = 1; i < smartBearMainPage.newOderDetails.size() - 1; i++) {
             Assert.assertTrue(smartBearMainPage.newOderDetails.get(i).isDisplayed());
         }
-
     }
     String date = new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
     @And("validate all information entered displayed correct with the order")
@@ -201,6 +190,18 @@ public class SmartBearSteps {
         for (int i = 1; i < smartBearMainPage.newOderDetails.size() - 1; i++) {
             Assert.assertEquals(newOrder[i],smartBearMainPage.newOderDetails.get(i).getText());
         }
-
+    }
+    @Then("validate all orders are deleted from the {string}")
+    public void validateAllOrdersAreDeletedFromThe(String tableName) {
+        Assert.assertEquals(tableName, smartBearMainPage.h2Header.getText());
+        try {
+            driver.findElement(By.cssSelector("table[id*='orderGrid']")).isDisplayed();
+        }catch (NoSuchElementException e){
+            Assert.assertTrue(true);
+        }
+    }
+    @And("validate user sees {string} message")
+    public void validateUserSeesMessage(String massage) {
+        Assert.assertEquals(massage, smartBearMainPage.orderMessage.getText());
     }
 }

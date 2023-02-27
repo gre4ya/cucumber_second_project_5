@@ -1,6 +1,5 @@
 Feature: SmartBear Functions Validation
 
-
   @Smoke
   Scenario: Validate invalid login attempt
     Given user is on "http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx"
@@ -39,7 +38,7 @@ Feature: SmartBear Functions Validation
     When user clicks on "Uncheck All" button
     Then all rows should be unchecked
 
-  @R
+  @Regression
   Scenario: Validate adding new order
     Given user is on "http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx"
     When user enters username as "Tester"
@@ -55,15 +54,15 @@ Feature: SmartBear Functions Validation
     And user clicks on "View all orders" menu item
     Then user should see their order displayed in the "List of All Orders" table
     And validate all information entered displayed correct with the order
-#
-#  @Regression
-#  Scenario: Validate "Delete Selected" button
-#    Given user is on "http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx"
-#    When user enters username as "Tester"
-#    And user enters password as "test"
-#    And user clicks on Login button
-#    Then user should be routed to "http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/"
-#    When user clicks on "Check All" button
-#    And user clicks on "Delete Selected" button
-#    Then validate all orders are deleted from the "List of All Orders"
-#    And validate user sees "List of orders is empty. In order to add new order use this link." message
+
+  @R
+  Scenario: Validate "Delete Selected" button
+    Given user is on "http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx"
+    When user enters username as "Tester"
+    And user enters password as "test"
+    And user clicks on Login button
+    Then user should be routed to "http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/"
+    When user clicks on "Check All" button
+    And user clicks on "Delete Selected" button
+    Then validate all orders are deleted from the "List of All Orders"
+    And validate user sees "List of orders is empty. In order to add new order use this link." message
