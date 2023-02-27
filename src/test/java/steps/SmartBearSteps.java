@@ -174,7 +174,7 @@ public class SmartBearSteps {
         smartBearMainPage.cardTypes.get(cardType).click();
         smartBearMainPage.cardNumber.sendKeys(cardNumber);
         smartBearMainPage.cardExpireDate.sendKeys(cardExpDate);
-        Waiter.pause(3);
+        Waiter.pause(2);
     }
     @Then("user should see their order displayed in the {string} table")
     public void userShouldSeeTheirOrderDisplayedInTheTable(String tableName) {

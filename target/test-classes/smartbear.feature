@@ -55,7 +55,7 @@ Feature: SmartBear Functions Validation
     Then user should see their order displayed in the "List of All Orders" table
     And validate all information entered displayed correct with the order
 
-  @R
+  @Regression
   Scenario: Validate "Delete Selected" button
     Given user is on "http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx"
     When user enters username as "Tester"
