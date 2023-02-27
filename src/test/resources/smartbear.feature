@@ -1,6 +1,5 @@
 Feature: SmartBear Functions Validation
 
-
   @Smoke
   Scenario: Validate invalid login attempt
     Given user is on "http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx"
@@ -39,7 +38,7 @@ Feature: SmartBear Functions Validation
     When user clicks on "Uncheck All" button
     Then all rows should be unchecked
 
-  @R
+  @Regression
   Scenario: Validate adding new order
     Given user is on "http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx"
     When user enters username as "Tester"

@@ -29,8 +29,14 @@ public class SmartBearMainPage {
     public List<WebElement> cardTypes;
     @FindBy(css = "input[id*='TextBox6']")
     public WebElement cardNumber;
+    @FindBy(tagName = "h2")
+    public WebElement h2Header;
+
     @FindBy(css = "input[id*='TextBox1']")
     public WebElement cardExpireDate;
+    @FindBy(xpath = "((//tbody)[2]/tr)[2]/td")
+    public List<WebElement> newOderDetails;
+
 
 
 

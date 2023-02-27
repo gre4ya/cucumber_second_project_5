@@ -19,7 +19,8 @@ import utils.RandomNumberGenerator;
 import utils.Waiter;
 import utils.WindowHandler;
 
-import java.util.Random;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class SmartBearSteps {
 
@@ -27,6 +28,7 @@ public class SmartBearSteps {
     SmartBearLoginPage smartBearLoginPage;
     SmartBearMainPage smartBearMainPage;
     Faker faker = new Faker();
+
 
     @Before
     public void setup() {
@@ -102,7 +104,7 @@ public class SmartBearSteps {
     @When("user clicks on {string} menu item")
     public void userClicksOnMenuItem(String manuItem) {
         driver.findElement(By.xpath("//a[text()='" + manuItem + "']")).click();
-        Waiter.pause(10);
+        Waiter.pause(5);
     }
 
     @And("user selects {string} as product")
@@ -147,8 +149,35 @@ public class SmartBearSteps {
 
     }
     int cardType = RandomNumberGenerator.getARandomNumber(0,2);
+    String cardTypeString;
+
+    {
+        switch(cardType){
+            case 0:
+                cardTypeString = "Visa";
+                break;
+            case 1:
+                cardTypeString = "MasterCard";
+                break;
+            case 2:
+                cardTypeString = "American Express";
+                break;
+            default:
+                throw new NotFoundException();
+        }
+    }
+
     String cardNumber = String.valueOf(faker.number().randomNumber(16, true));
-    String cardExpDate = "0" + RandomNumberGenerator.getARandomNumber(1,9) + "/" + RandomNumberGenerator.getARandomNumber(25,30);
+    String cardExpDate;
+
+    int month = RandomNumberGenerator.getARandomNumber(1,12);
+    int year = RandomNumberGenerator.getARandomNumber(25,30);
+    {
+        if(month < 10) cardExpDate = "" + cardNumber + "0" + month;
+        else cardExpDate = "" + month;
+        cardExpDate += "/" + year;
+    }
+
     @And("user enters all payment information")
     public void userEntersAllPaymentInformation() {
         smartBearMainPage.cardTypes.get(cardType).click();
@@ -158,10 +187,20 @@ public class SmartBearSteps {
     }
 
     @Then("user should see their order displayed in the {string} table")
-    public void userShouldSeeTheirOrderDisplayedInTheTable(String arg0) {
-    }
+    public void userShouldSeeTheirOrderDisplayedInTheTable(String tableName) {
+        Assert.assertEquals(tableName, smartBearMainPage.h2Header.getText());
+        for (int i = 1; i < smartBearMainPage.newOderDetails.size() - 1; i++) {
+            Assert.assertTrue(smartBearMainPage.newOderDetails.get(i).isDisplayed());
+        }
 
+    }
+    String date = new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
     @And("validate all information entered displayed correct with the order")
     public void validateAllInformationEnteredDisplayedCorrectWithTheOrder() {
+        String[] newOrder= {"", fullName, "FamilyAlbum", "2", date, streetAddress, city, state, zip, cardTypeString, cardNumber, cardExpDate, ""};
+        for (int i = 1; i < smartBearMainPage.newOderDetails.size() - 1; i++) {
+            Assert.assertEquals(newOrder[i],smartBearMainPage.newOderDetails.get(i).getText());
+        }
+
     }
 }
