@@ -47,7 +47,7 @@ Feature: SmartBear Functions Validation
     Then user should be routed to "http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/"
     When user clicks on "Order" menu item
     And user selects "FamilyAlbum" as product
-    And user enters 2 as quantity
+    And user enters "2" as quantity
     And user enters all address information
     And user enters all payment information
     And user clicks on "Process" button

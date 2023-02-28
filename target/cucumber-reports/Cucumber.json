@@ -6,7 +6,249 @@
         "before": [
           {
             "result": {
-              "duration": 5891130533,
+              "duration": 4419140891,
+              "status": "passed"
+            },
+            "match": {
+              "location": "SmartBearSteps.setup()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "Validate invalid login attempt",
+        "description": "",
+        "id": "smartbear-functions-validation;validate-invalid-login-attempt",
+        "after": [
+          {
+            "result": {
+              "duration": 163805809,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.teardown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 283908119,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is on \"http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx\"",
+                  "offset": 11
+                }
+              ],
+              "location": "SmartBearSteps.user_is_on(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 117078208,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user enters username as \"abcd\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"abcd\"",
+                  "offset": 24
+                }
+              ],
+              "location": "SmartBearSteps.user_enters_username_as(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 74851508,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user enters password as \"abcd1234\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"abcd1234\"",
+                  "offset": 24
+                }
+              ],
+              "location": "SmartBearSteps.user_enters_password_as(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 141686415,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user clicks on Login button",
+            "match": {
+              "location": "SmartBearSteps.user_clicks_on_Login_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 35874472,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "user should see \"Invalid Login or Password.\" message",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Invalid Login or Password.\"",
+                  "offset": 16
+                }
+              ],
+              "location": "SmartBearSteps.user_should_see_message(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Smoke"
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 2692910357,
+              "status": "passed"
+            },
+            "match": {
+              "location": "SmartBearSteps.setup()"
+            }
+          }
+        ],
+        "line": 12,
+        "name": "Validate valid login attempt",
+        "description": "",
+        "id": "smartbear-functions-validation;validate-valid-login-attempt",
+        "after": [
+          {
+            "result": {
+              "duration": 167251064,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.teardown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 276706329,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "user is on \"http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"http://secure.smartbearsoftware.com/samples/testcomplete12/WebOrders/login.aspx\"",
+                  "offset": 11
+                }
+              ],
+              "location": "SmartBearSteps.user_is_on(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 147613464,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "user enters username as \"Tester\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Tester\"",
+                  "offset": 24
+                }
+              ],
+              "location": "SmartBearSteps.user_enters_username_as(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 62946463,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "user enters password as \"test\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"test\"",
+                  "offset": 24
+                }
+              ],
+              "location": "SmartBearSteps.user_enters_password_as(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1088425625,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "user clicks on Login button",
+            "match": {
+              "location": "SmartBearSteps.user_clicks_on_Login_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5713268,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "user should be routed to \"http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"http://secure.smartbearsoftware.com/samples/testcomplete12/weborders/\"",
+                  "offset": 25
+                }
+              ],
+              "location": "SmartBearSteps.userShouldBeRoutedTo(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Smoke"
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 2641703973,
               "status": "passed"
             },
             "match": {
@@ -21,7 +263,7 @@
         "after": [
           {
             "result": {
-              "duration": 213221463,
+              "duration": 172126259,
               "status": "passed"
             },
             "match": {
@@ -34,7 +276,7 @@
         "steps": [
           {
             "result": {
-              "duration": 252114551,
+              "duration": 241416188,
               "status": "passed"
             },
             "line": 21,
@@ -52,7 +294,7 @@
           },
           {
             "result": {
-              "duration": 162902389,
+              "duration": 157835476,
               "status": "passed"
             },
             "line": 22,
@@ -70,7 +312,7 @@
           },
           {
             "result": {
-              "duration": 64561557,
+              "duration": 63401782,
               "status": "passed"
             },
             "line": 23,
@@ -88,7 +330,7 @@
           },
           {
             "result": {
-              "duration": 811956295,
+              "duration": 1461975563,
               "status": "passed"
             },
             "line": 24,
@@ -100,7 +342,7 @@
           },
           {
             "result": {
-              "duration": 7731471,
+              "duration": 13380437,
               "status": "passed"
             },
             "line": 25,
@@ -118,7 +360,7 @@
           },
           {
             "result": {
-              "duration": 71162848,
+              "duration": 108326910,
               "status": "passed"
             },
             "line": 26,
@@ -148,7 +390,7 @@
         "before": [
           {
             "result": {
-              "duration": 2792834561,
+              "duration": 2471419241,
               "status": "passed"
             },
             "match": {
@@ -163,7 +405,7 @@
         "after": [
           {
             "result": {
-              "duration": 180748268,
+              "duration": 175216418,
               "status": "passed"
             },
             "match": {
@@ -176,7 +418,7 @@
         "steps": [
           {
             "result": {
-              "duration": 289583820,
+              "duration": 275275716,
               "status": "passed"
             },
             "line": 31,
@@ -194,7 +436,7 @@
           },
           {
             "result": {
-              "duration": 124934834,
+              "duration": 111922656,
               "status": "passed"
             },
             "line": 32,
@@ -212,7 +454,7 @@
           },
           {
             "result": {
-              "duration": 62841536,
+              "duration": 76255099,
               "status": "passed"
             },
             "line": 33,
@@ -230,7 +472,7 @@
           },
           {
             "result": {
-              "duration": 1010826738,
+              "duration": 863862436,
               "status": "passed"
             },
             "line": 34,
@@ -242,7 +484,7 @@
           },
           {
             "result": {
-              "duration": 7449819,
+              "duration": 13778407,
               "status": "passed"
             },
             "line": 35,
@@ -260,7 +502,7 @@
           },
           {
             "result": {
-              "duration": 168535430,
+              "duration": 267237017,
               "status": "passed"
             },
             "line": 36,
@@ -278,7 +520,7 @@
           },
           {
             "result": {
-              "duration": 209831420,
+              "duration": 208227805,
               "status": "passed"
             },
             "line": 37,
@@ -290,7 +532,7 @@
           },
           {
             "result": {
-              "duration": 127992390,
+              "duration": 133580327,
               "status": "passed"
             },
             "line": 38,
@@ -308,7 +550,7 @@
           },
           {
             "result": {
-              "duration": 194744656,
+              "duration": 204581718,
               "status": "passed"
             },
             "line": 39,
@@ -329,7 +571,7 @@
         "before": [
           {
             "result": {
-              "duration": 2756150419,
+              "duration": 2618308319,
               "status": "passed"
             },
             "match": {
@@ -344,7 +586,7 @@
         "after": [
           {
             "result": {
-              "duration": 218510517,
+              "duration": 163808909,
               "status": "passed"
             },
             "match": {
@@ -357,7 +599,7 @@
         "steps": [
           {
             "result": {
-              "duration": 230378568,
+              "duration": 300668735,
               "status": "passed"
             },
             "line": 43,
@@ -375,7 +617,7 @@
           },
           {
             "result": {
-              "duration": 125642323,
+              "duration": 112130624,
               "status": "passed"
             },
             "line": 44,
@@ -393,7 +635,7 @@
           },
           {
             "result": {
-              "duration": 64332252,
+              "duration": 62195449,
               "status": "passed"
             },
             "line": 45,
@@ -411,7 +653,7 @@
           },
           {
             "result": {
-              "duration": 876497133,
+              "duration": 793587150,
               "status": "passed"
             },
             "line": 46,
@@ -423,7 +665,7 @@
           },
           {
             "result": {
-              "duration": 6034577,
+              "duration": 7472807,
               "status": "passed"
             },
             "line": 47,
@@ -441,7 +683,7 @@
           },
           {
             "result": {
-              "duration": 5261085111,
+              "duration": 198326622,
               "status": "passed"
             },
             "line": 48,
@@ -459,7 +701,7 @@
           },
           {
             "result": {
-              "duration": 98774934,
+              "duration": 108718876,
               "status": "passed"
             },
             "line": 49,
@@ -477,19 +719,25 @@
           },
           {
             "result": {
-              "duration": 107616522,
+              "duration": 97035848,
               "status": "passed"
             },
             "line": 50,
-            "name": "user enters 2 as quantity",
+            "name": "user enters \"2\" as quantity",
             "match": {
-              "location": "SmartBearSteps.userEntersAsQuantity()"
+              "arguments": [
+                {
+                  "val": "\"2\"",
+                  "offset": 12
+                }
+              ],
+              "location": "SmartBearSteps.userEntersAsQuantity(String)"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 358034728,
+              "duration": 380835878,
               "status": "passed"
             },
             "line": 51,
@@ -501,7 +749,7 @@
           },
           {
             "result": {
-              "duration": 2190310964,
+              "duration": 191703091,
               "status": "passed"
             },
             "line": 52,
@@ -513,7 +761,7 @@
           },
           {
             "result": {
-              "duration": 184552277,
+              "duration": 176750458,
               "status": "passed"
             },
             "line": 53,
@@ -531,7 +779,7 @@
           },
           {
             "result": {
-              "duration": 5693197029,
+              "duration": 270522569,
               "status": "passed"
             },
             "line": 54,
@@ -549,7 +797,7 @@
           },
           {
             "result": {
-              "duration": 399375954,
+              "duration": 382131585,
               "status": "passed"
             },
             "line": 55,
@@ -567,7 +815,7 @@
           },
           {
             "result": {
-              "duration": 345025546,
+              "duration": 263644766,
               "status": "passed"
             },
             "line": 56,
@@ -588,7 +836,7 @@
         "before": [
           {
             "result": {
-              "duration": 2958238348,
+              "duration": 2459556365,
               "status": "passed"
             },
             "match": {
@@ -603,7 +851,7 @@
         "after": [
           {
             "result": {
-              "duration": 186832586,
+              "duration": 178380964,
               "status": "passed"
             },
             "match": {
@@ -616,7 +864,7 @@
         "steps": [
           {
             "result": {
-              "duration": 219070747,
+              "duration": 660392664,
               "status": "passed"
             },
             "line": 60,
@@ -634,7 +882,7 @@
           },
           {
             "result": {
-              "duration": 280987395,
+              "duration": 106899447,
               "status": "passed"
             },
             "line": 61,
@@ -652,7 +900,7 @@
           },
           {
             "result": {
-              "duration": 71844424,
+              "duration": 61839358,
               "status": "passed"
             },
             "line": 62,
@@ -670,7 +918,7 @@
           },
           {
             "result": {
-              "duration": 1022926300,
+              "duration": 1094217375,
               "status": "passed"
             },
             "line": 63,
@@ -682,7 +930,7 @@
           },
           {
             "result": {
-              "duration": 7867330,
+              "duration": 9760755,
               "status": "passed"
             },
             "line": 64,
@@ -700,7 +948,7 @@
           },
           {
             "result": {
-              "duration": 178677491,
+              "duration": 163394928,
               "status": "passed"
             },
             "line": 65,
@@ -718,7 +966,7 @@
           },
           {
             "result": {
-              "duration": 1571928212,
+              "duration": 1353371641,
               "status": "passed"
             },
             "line": 66,
@@ -736,7 +984,7 @@
           },
           {
             "result": {
-              "duration": 10089727580,
+              "duration": 10110518814,
               "status": "passed"
             },
             "line": 67,
@@ -754,7 +1002,7 @@
           },
           {
             "result": {
-              "duration": 21246188,
+              "duration": 21096556,
               "status": "passed"
             },
             "line": 68,

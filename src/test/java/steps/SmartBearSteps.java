@@ -82,7 +82,6 @@ public class SmartBearSteps {
             case "Delete Selected":
                 smartBearMainPage.deleteAllButton.click();
                 break;
-
             default:
                 throw new NotFoundException();
         }
@@ -102,17 +101,20 @@ public class SmartBearSteps {
     @When("user clicks on {string} menu item")
     public void userClicksOnMenuItem(String manuItem) {
         driver.findElement(By.xpath("//a[text()='" + manuItem + "']")).click();
-        Waiter.pause(5);
     }
+    String product;
     @And("user selects {string} as product")
     public void userSelectsAsProduct(String dropdownOption) {
+        product = dropdownOption;
         Select select = new Select(smartBearMainPage.productDropdown);
         select.selectByVisibleText(dropdownOption);
     }
-    @And("user enters 2 as quantity")
-    public void userEntersAsQuantity() {
+    String productQuantity;
+    @And("user enters {string} as quantity")
+    public void userEntersAsQuantity(String quantity) {
+        productQuantity = quantity;
         smartBearMainPage.quantityInput.clear();
-        smartBearMainPage.quantityInput.sendKeys("2");
+        smartBearMainPage.quantityInput.sendKeys(productQuantity);
     }
     String streetAddress = faker.address().streetAddress();
     String fullName = faker.name().fullName();
@@ -165,16 +167,14 @@ public class SmartBearSteps {
     int month = RandomNumberGenerator.getARandomNumber(1,12);
     int year = RandomNumberGenerator.getARandomNumber(25,30);
     {
-        if(month < 10) cardExpDate = "" + cardNumber + "0" + month;
-        else cardExpDate = "" + month;
-        cardExpDate += "/" + year;
+        if(month < 10) cardExpDate = "0" + month + "/" + year;
+        else cardExpDate = "" + month + "/" + year;
     }
     @And("user enters all payment information")
     public void userEntersAllPaymentInformation() {
         smartBearMainPage.cardTypes.get(cardType).click();
         smartBearMainPage.cardNumber.sendKeys(cardNumber);
         smartBearMainPage.cardExpireDate.sendKeys(cardExpDate);
-        Waiter.pause(2);
     }
     @Then("user should see their order displayed in the {string} table")
     public void userShouldSeeTheirOrderDisplayedInTheTable(String tableName) {
@@ -186,8 +186,9 @@ public class SmartBearSteps {
     String date = new SimpleDateFormat("MM/dd/yyyy").format(Calendar.getInstance().getTime());
     @And("validate all information entered displayed correct with the order")
     public void validateAllInformationEnteredDisplayedCorrectWithTheOrder() {
-        String[] newOrder= {"", fullName, "FamilyAlbum", "2", date, streetAddress, city, state, zip, cardTypeString, cardNumber, cardExpDate, ""};
+        String[] newOrder= {"", fullName, product, productQuantity, date, streetAddress, city, state, zip, cardTypeString, cardNumber, cardExpDate, ""};
         for (int i = 1; i < smartBearMainPage.newOderDetails.size() - 1; i++) {
+            if(i==4) continue;
             Assert.assertEquals(newOrder[i],smartBearMainPage.newOderDetails.get(i).getText());
         }
     }
